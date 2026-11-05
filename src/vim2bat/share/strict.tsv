@@ -1,0 +1,37 @@
+Comment	comment, punctuation.definition.comment
+Constant	constant, entity.name.constant, variable.other.constant, support.constant
+String	string
+Character	constant.character
+Number	constant.numeric
+Boolean	constant.language.boolean
+Float	constant.numeric.float
+Identifier	variable, support.variable
+Function	entity.name.function, variable.function, support.function
+Statement	keyword
+Conditional	keyword.control.conditional, keyword.control.switch
+Repeat	keyword.control.loop
+Label	keyword.control.conditional.case, keyword.control.conditional.default, entity.name.label, variable.label
+Operator	keyword.operator
+Keyword	keyword.other
+Exception	keyword.control.exception, keyword.control.trycatch, keyword.control.flow.throw, keyword.control.flow.raise
+PreProc	keyword.control.preprocessor, keyword.other.preprocessor
+Include	keyword.control.import.include
+Define	keyword.control.import.define
+Macro	entity.name.macro, support.macro, variable.macro, entity.name.constant.preprocessor, entity.name.function.preprocessor, variable.function.assumed-macro
+PreCondit	keyword.control.import.else, meta.preprocessor keyword.control.import
+Type	storage.type, entity.name.type, support.type
+StorageClass	storage.modifier
+Structure	storage.type.struct, storage.type.union, storage.type.enum, storage.type.class, keyword.declaration.struct, keyword.declaration.union, keyword.declaration.enum, keyword.declaration.class, storage.type.keyword.struct
+Typedef	entity.name.type.typedef
+SpecialChar	constant.character.escape
+Delimiter	punctuation
+SpecialComment	keyword.other.documentation
+Underlined	markup.underline
+Bold	markup.bold
+Italic	markup.italic
+BoldItalic	markup.bold markup.italic, markup.italic markup.bold
+Error	invalid
+Todo	comment.line.todo, keyword.other.todo
+Added	markup.inserted
+Changed	markup.changed
+Removed	markup.deleted

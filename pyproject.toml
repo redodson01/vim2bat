@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vim2bat"
+version = "0.1.0"
+description = "Generate bat themes from Vim colorschemes"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Richard E. Dodson" }]
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Topic :: Text Editors",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/redodson01/vim2bat"
+Repository = "https://github.com/redodson01/vim2bat"
+Issues = "https://github.com/redodson01/vim2bat/issues"
+Changelog = "https://github.com/redodson01/vim2bat/blob/main/CHANGELOG.md"
+
+[project.scripts]
+vim2bat = "vim2bat.cli:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
+
+[tool.ruff.lint]
+extend-select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF", "PT"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src", "tests"]
+
+[tool.pytest]
+minversion = "9.0"
+testpaths = ["tests"]
+strict = true
+addopts = ["-ra", "--import-mode=importlib"]

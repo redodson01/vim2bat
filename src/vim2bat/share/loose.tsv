@@ -1,0 +1,84 @@
+ruby	Normal	punctuation.accessor.dot.ruby, punctuation.accessor.double-colon.ruby, punctuation.definition.group.begin.ruby, punctuation.definition.group.end.ruby, punctuation.section.array.ruby, punctuation.section.scope.ruby, punctuation.separator.sequence.ruby, punctuation.separator.ruby, punctuation.separator.key-value.ruby, punctuation.separator.inheritance.ruby, punctuation.definition.parameters.begin.ruby, punctuation.definition.parameters.end.ruby, punctuation.terminator.statement.ruby
+ruby	Normal	punctuation.definition.constant.ruby
+ruby	Normal	keyword.operator.arithmetic.ruby, keyword.operator.assignment.ruby, keyword.operator.assignment.augmented.ruby, keyword.operator.bitwise.ruby, keyword.operator.comparison.ruby, keyword.operator.conditional.ruby, keyword.operator.logical.ruby, keyword.operator.other.ruby, keyword.operator.range.ruby, keyword.operator.ruby, keyword.operator.splat.ruby
+ruby	Normal	support.function.builtin.ruby
+ruby	Normal	variable.parameter.ruby
+ruby	rubySymbol	constant.other.symbol.ruby, constant.other.symbol.single-quoted.ruby, constant.other.symbol.double-quoted.ruby
+ruby	rubyConstant	support.class.ruby, variable.other.constant.ruby, entity.name.constant.ruby, entity.other.inherited-class.ruby, support.other.namespace.ruby
+ruby	rubyClassName	entity.name.class.ruby
+ruby	rubyModuleName	entity.name.namespace.ruby
+ruby	rubyDefine	keyword.declaration.function.ruby
+ruby	rubyClass	keyword.declaration.class.ruby
+ruby	rubyModule	keyword.declaration.namespace.ruby
+ruby	rubyMacro	keyword.other.special-method.ruby
+ruby	rubyInclude	keyword.control.import.ruby
+ruby	rubyPseudoVariable	variable.language.ruby
+ruby	rubyInstanceVariable	punctuation.definition.variable.ruby
+ruby	rubyComment	punctuation.definition.comment.ruby
+ruby	rubyFloat	punctuation.separator.decimal.ruby
+ruby	rubyDocumentation	punctuation.definition.comment.begin.ruby, punctuation.definition.comment.end.ruby
+ruby	rubyRegexpDelimiter	keyword.other.ruby
+ruby	rubyInteger	punctuation.definition.numeric.base.ruby
+html	htmlTagName	entity.name.tag.structure.any.html, entity.name.tag.block.any.html, entity.name.tag.block.form.html, entity.name.tag.inline.any.html, entity.name.tag.inline.form.html, entity.name.tag.inline.a.html, entity.name.tag.inline.table.html
+html	htmlArg	entity.other.attribute-name.html, entity.other.attribute-name.class.html, entity.other.attribute-name.id.html, entity.other.attribute-name.style.html
+html	htmlTag	punctuation.definition.tag.begin.html, punctuation.definition.tag.end.html
+html	htmlString	punctuation.definition.string.begin.html, punctuation.definition.string.end.html
+css	cssClassName	source.css entity.other.attribute-name.class.css
+css	cssBraces	source.css punctuation.section.property-list.css
+css	cssUnitDecorators	source.css keyword.other.unit.css
+css	cssNoise	source.css punctuation.separator.key-value.css, source.css punctuation.terminator.rule.css
+css	cssTagName	source.css entity.name.tag.css
+css	cssClassNameDot	source.css punctuation.definition.entity.css
+css	cssImportant	source.css keyword.other.important.css
+typescript	Normal	source.ts variable.other, source.tsx variable.other, variable.other.constant.ts, variable.other.constant.tsx, variable.other.constant.object.ts, variable.other.constant.object.tsx, variable.other.constant.property.ts, variable.other.constant.property.tsx, variable.other.constant.object.property.ts, variable.other.constant.object.property.tsx
+typescript	Normal	source.ts punctuation.separator.comma, source.tsx punctuation.separator.comma, source.ts punctuation.accessor, source.tsx punctuation.accessor, source.ts punctuation.separator.key-value, source.tsx punctuation.separator.key-value, source.ts punctuation.terminator.statement, source.tsx punctuation.terminator.statement
+typescript	typescriptBraces	source.ts punctuation.definition.block, source.tsx punctuation.definition.block
+typescript	Normal	entity.name.function.ts, entity.name.function.tsx
+typescript	typescriptObjectLabel	meta.object-literal.key.ts, meta.object-literal.key.tsx
+typescript	typescriptTypeReference	entity.name.type.ts, entity.name.type.tsx
+typescript	Keyword	support.variable.property.dom.ts, support.variable.property.dom.tsx
+typescript	typescriptCall	variable.parameter.ts, variable.parameter.tsx
+typescript	typescriptVariable	storage.type.ts, storage.type.tsx
+typescript	typescriptString	punctuation.definition.string.begin.ts, punctuation.definition.string.begin.tsx, punctuation.definition.string.end.ts, punctuation.definition.string.end.tsx
+typescriptreact	tsxTagName	support.class.component.tsx
+typescriptreact	tsxAttrib	entity.other.attribute-name.tsx
+typescriptreact	tsxTag	punctuation.definition.tag.begin.tsx, punctuation.definition.tag.end.tsx
+javascript	Normal	variable.other.readwrite.js, variable.other.object.js, variable.other.property.js, variable.other.property.static.js, variable.other.class.js, variable.other.constant.js, variable.parameter.function.js, variable.function.js, variable.function.constructor.js, variable.function.tagged-template.js, entity.name.function.js
+javascript	Normal	string.unquoted.label.js
+javascript	Normal	keyword.operator.accessor.js, keyword.operator.assignment.js, keyword.operator.assignment.augmented.js, keyword.operator.arithmetic.js, keyword.operator.comparison.js, keyword.operator.relational.js, keyword.operator.logical.js, keyword.operator.bitwise.js, keyword.operator.ternary.js, keyword.operator.spread.js, storage.type.function.arrow.js
+javascript	Normal	punctuation.terminator.statement.js, punctuation.separator.key-value.js, punctuation.separator.parameter.function.js
+javascriptreact	Normal	punctuation.definition.tag.begin.jsx, punctuation.definition.tag.end.jsx, keyword.operator.assignment.jsx
+javascript	javaScriptReserved	storage.type.js, storage.type.class.js, storage.type.extends.js
+javascript	javaScriptFunction	storage.type.function.js
+javascript	javaScriptBraces	meta.brace.curly.begin.js, meta.brace.curly.end.js, meta.brace.square.begin.js, meta.brace.square.end.js, punctuation.section.embedded.begin.jsx, punctuation.section.embedded.end.jsx
+javascript	String	punctuation.definition.string.begin.js, punctuation.definition.string.end.js, punctuation.definition.string.begin.jsx, punctuation.definition.string.end.jsx
+scss	Normal	source.scss variable.function, source.scss entity.name.function
+scss	PreProc	source.scss keyword.control.at-rule
+sass	sassClass	source.scss entity.other.attribute-name.class
+css	cssTagName	source.scss entity.name.tag
+css	cssPseudoClassId	source.scss entity.other.pseudo-class, source.scss entity.other.pseudo-element
+scss	Normal	source.scss punctuation.terminator.rule
+scss	Normal	source.scss punctuation.separator.key-value
+scss	Normal	source.scss punctuation.separator.sequence
+scss	Normal	source.scss punctuation.definition.group
+css	cssBraces	source.scss punctuation.section.property-list
+sass	sassVariable	source.scss punctuation.definition.variable
+yaml	yamlPlainScalar	string.unquoted.plain.out.yaml
+yaml	yamlBlockString	string.unquoted.block.yaml
+yaml	yamlBlockMappingKey	entity.name.tag.yaml
+yaml	yamlAlias	variable.other.alias.yaml
+vim	vimFunctionBang	meta.function.viml
+vim	vimCommand	storage.function.viml
+vim	vimFunctionName	entity.name.function.viml
+vim	vimCommand	keyword.control.viml
+vim	vimCommand	support.function.viml
+vim	Special	support.type.viml
+gitcommit	gitcommitSummary	markup.heading.subject.git.commit
+gitcommit	gitcommitComment	punctuation.definition.comment.git.commit
+gitcommit	gitcommitSelectedFile	markup.changed.file.content.git.commit
+diff	diffLine	meta.range.unified.diff, punctuation.definition.range.diff
+diff	diffSubname	entity.name.section.diff
+diff	diffOldFile	meta.header.from-file.diff, punctuation.definition.from-file.diff
+diff	diffNewFile	meta.header.to-file.diff, punctuation.definition.to-file.diff
+diff	diffAdded	punctuation.definition.inserted.diff
+diff	diffRemoved	punctuation.definition.deleted.diff

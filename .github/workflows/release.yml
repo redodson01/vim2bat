@@ -1,0 +1,105 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+
+      - name: Check that the tag matches the package version
+        run: |
+          VERSION="$(uv version --short)"
+          if [ "$GITHUB_REF_NAME" != "v$VERSION" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package version $VERSION"
+            exit 1
+          fi
+
+      - run: uv build
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/vim2bat
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
+
+      - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
+
+  github-release:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes
+
+  homebrew:
+    needs: github-release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Update Homebrew formula
+        # secrets context is not available in `if` expressions, so we check
+        # the job-level env var instead.
+        if: env.HOMEBREW_TAP_TOKEN != ''
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+
+          TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/archive/refs/tags/$GITHUB_REF_NAME.tar.gz"
+          curl -fsSL "$TARBALL_URL" -o /tmp/source.tar.gz
+          SHA=$(sha256sum /tmp/source.tar.gz | awk '{print $1}')
+
+          sed -e "s/VERSION_PLACEHOLDER/$VERSION/g" \
+              -e "s/SHA_PLACEHOLDER/$SHA/g" \
+              formula/vim2bat.rb > /tmp/vim2bat.rb
+
+          git clone "https://x-access-token:${HOMEBREW_TAP_TOKEN}@github.com/redodson01/homebrew-tap.git" /tmp/tap
+          cd /tmp/tap
+          cp /tmp/vim2bat.rb vim2bat.rb
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add vim2bat.rb
+          git diff --cached --quiet || { git commit -m "vim2bat ${VERSION}" && git push; }
